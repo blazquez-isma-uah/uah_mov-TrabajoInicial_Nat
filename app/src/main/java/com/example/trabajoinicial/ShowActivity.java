@@ -82,22 +82,35 @@ public class ShowActivity extends AppCompatActivity {
     }
 
     private void ordenarPorNota() {
+        String texto = getString(R.string.ordenar_por_nota);
+
         // Ordenar la lista por nota
         if(ordenAscendenteNota) {
             listaAsignaturas.sort(Comparator.comparing(Asignatura::getNota));
+            texto = texto + " ↓";
         } else {
             listaAsignaturas.sort(Comparator.comparing(Asignatura::getNota).reversed());
+            texto += " ↑";
         }
+        botonOrdenarNota.setText(texto);
+        // Se pone el texto del otro botón en su estado original
+        botonOrdenarNombre.setText(getString(R.string.ordenar_por_nombre));
         ordenAscendenteNota = !ordenAscendenteNota; // Cambiar el orden para la próxima vez
     }
 
     private void ordenarPorNombre() {
+        String texto = getString(R.string.ordenar_por_nombre);
         // Ordenar la lista por nombre según el orden actual
         if(ordenAscendenteNombre) {
             listaAsignaturas.sort((a, b) -> a.getNombre().compareToIgnoreCase(b.getNombre()));
+            texto += " ↓";
         } else {
             listaAsignaturas.sort((a, b) -> b.getNombre().compareToIgnoreCase(a.getNombre()));
+            texto += " ↑";
         }
+        botonOrdenarNombre.setText(texto);
+        // Se pone el texto del otro botón en su estado original
+        botonOrdenarNota.setText(getString(R.string.ordenar_por_nota));
         ordenAscendenteNombre = !ordenAscendenteNombre; // Cambiar el orden para la próxima vez
     }
 }
