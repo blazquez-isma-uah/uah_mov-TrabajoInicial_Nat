@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp">
+
+    <!--
+    RecyclerView para mostrar la lista de asignaturas
+    layout_below se usa para colocar el RecyclerView debajo del contenedor de botones
+    -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerAsignaturas"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/contenedorBotones"
+        android:layout_above="@id/botonVolver"
+        />
+
+    <!--
+    Contenedor para los botones de ordenar
+    Se usa layout_alignParentBottom para que el contenedor esté siempre en la parte inferior
+    -->
+    <LinearLayout
+        android:id="@+id/contenedorBotones"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="12dp"
+        android:gravity="center"
+        android:layout_alignParentTop="true"
+        android:background="#FFFFFF"
+        android:elevation="4dp">
+
+        <!--
+        Boton para ordenar por Nombre
+        -->
+        <Button
+             android:id="@+id/botonOrdenarNombre"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:text="@string/ordenar_por_nombre"
+        />
+
+        <!--
+        Espacio entre los botones
+        -->
+        <Space
+            android:layout_width="16dp"
+            android:layout_height="wrap_content"
+            />
+
+        <!--
+        Boton para ordenar por Nota
+        -->
+        <Button
+             android:id="@+id/botonOrdenarNota"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:text="@string/ordenar_por_nota"
+        />
+    </LinearLayout>
+
+    <!--
+    Boton para volver a la actividad anterior
+    Se usa layout_alignParentBottom y layout_alignParentEnd para que el boton esté en la parte inferior derecha
+    -->
+    <Button
+        android:id="@+id/botonVolver"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/volver"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_margin="16dp"
+        />
+
+
+
+</RelativeLayout >

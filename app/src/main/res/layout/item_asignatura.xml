@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="12dp"
+    android:background="#e0e0e0"
+    android:layout_marginBottom="8dp">
+
+    <!--
+    layout_width="0dp" y layout_weight="1" hacen que el TextView ocupe el espacio restante
+    maxLines="3" + wrap_content hace que el TextView se ajuste a 3 líneas
+    ellipsize="end" hace que el texto se corte con "..." si es demasiado largo
+    layout_gravity="center_vertical" alinea el texto verticalmente en el centro
+    -->
+    <TextView
+        android:id="@+id/textoNombre"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="@string/nombre_asignatura"
+        android:padding="16dp"
+        android:textSize="18sp"
+        android:maxLines="3"
+        android:ellipsize="end"
+        android:layout_gravity="center_vertical"
+        android:textStyle="bold" />
+
+    <!--
+    layout_witdth="80dp" establece un ancho fijo para el TextView
+    gravity="end|center_vertical" alinea el texto a la derecha y verticalmente en el centro
+    layout_gravity="center_vertical" alinea el TextView verticalmente en el centro
+    -->
+    <TextView
+        android:id="@+id/textoNota"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:text="@string/nota"
+        android:padding="16dp"
+        android:textSize="16sp"
+        android:gravity="end|center_vertical"
+        android:textStyle="bold"
+        android:layout_gravity="center_vertical"/>
+
+</LinearLayout>

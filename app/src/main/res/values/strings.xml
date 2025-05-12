@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">TrabajoInicial</string>
+    <string name="nombre_asignatura">Nombre de la asignatura</string>
+    <string name="nota">Nota obtenida</string>
+    <string name="guardar_asignatura">Guardar asignatura</string>
+    <string name="consultar_calificaciones">Consultar calificaciones</string>
+    <string name="ordenar_por_nombre">Ordenar por Nombre</string>
+    <string name="ordenar_por_nota">Ordenar por Nota</string>
+    <string name="volver">Volver</string>
 </resources>
