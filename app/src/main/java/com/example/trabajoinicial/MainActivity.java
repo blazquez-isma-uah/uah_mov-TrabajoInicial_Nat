@@ -89,6 +89,11 @@ public class MainActivity extends AppCompatActivity {
             // Validar que la nota es un número
             double nota = Double.parseDouble(notaString);
 
+            if(nota < 0 || nota > 10) {
+                Toast.makeText(this, "La nota debe estar entre 0 y 10", Toast.LENGTH_SHORT).show();
+                return;
+            }
+
             // Crear objeto Asignatura
             Asignatura asignatura = new Asignatura(nombreAsignatura, nota);
             asignaturas.add(asignatura);
