@@ -47,13 +47,7 @@ public class MainActivity extends AppCompatActivity {
         // Recuperar preferencias compartidas
         sharedPreferences = getSharedPreferences("asignaturasPreferences", MODE_PRIVATE);
 
-        // Recuperar la lista de asignaturas guardadas
-        String jsonGuardado = sharedPreferences.getString("asignaturas", null);
-        if (jsonGuardado != null) {
-            // Convertir el JSON a una lista de objetos Asignatura
-            Type tipoLista = new TypeToken<List<Asignatura>>() {}.getType();
-            asignaturas = gson.fromJson(jsonGuardado, tipoLista);
-        }
+        getAsignaturasGuardadas();
 
         // Comportamiento del botón "Guardar"
         botonGuardar.setOnClickListener(v -> guardarAsignatura());
@@ -64,7 +58,26 @@ public class MainActivity extends AppCompatActivity {
             Intent intent = new Intent(MainActivity.this, ShowActivity.class);
             startActivity(intent);
         });
+    }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        // Recuperar la lista de asignaturas guardadas al volver a la actividad
+        getAsignaturasGuardadas();
+    }
+
+    private void getAsignaturasGuardadas() {
+        // Recuperar la lista de asignaturas guardadas
+        String jsonGuardado = sharedPreferences.getString("asignaturas", null);
+        if (jsonGuardado != null) {
+            // Convertir el JSON a una lista de objetos Asignatura
+            Type tipoLista = new TypeToken<List<Asignatura>>() {}.getType();
+            asignaturas = gson.fromJson(jsonGuardado, tipoLista);
+        } else {
+            // Si no hay datos guardados, inicializar la lista
+            asignaturas = new ArrayList<>();
+        }
     }
 
     private void guardarAsignatura() {
