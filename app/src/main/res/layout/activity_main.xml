@@ -13,6 +13,7 @@
         android:layout_height="wrap_content"
         android:hint="@string/nombre_asignatura"
         android:layout_marginBottom="15dp"
+        android:layout_marginTop="20dp"
         />
 
     <!-- Campo para ingresar la nota de la asignatura -->
